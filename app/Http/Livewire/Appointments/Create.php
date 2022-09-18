@@ -25,6 +25,10 @@ class Create extends Component
             'email' => $this->email,
             'contact' => $this->contact,
         ]);
+<<<<<<< Updated upstream
+=======
+        return redirect('/home')->with('message', 'Created Successfully');
+>>>>>>> Stashed changes
     }
     public function updated($propertyAppt_time)
     {
