@@ -27,21 +27,12 @@
                 </div>
 
                 <div class="form-floating mb-4">
-                    <input type="date" name="appt_date" class="form-control" wire:model.defer="appt_date">
-                    <label for="appt_date">Appointment Date</label>
-                    @error('appt_date')
+                    <input type="datetime-local" name="appt_date" class="form-control" wire:model.defer="schedule">
+                    <label for="appt_date">Appointment Schedule</label>
+                    @error('schedule')
                         <p class="text-danger">{{$message}}</p>
                     @enderror
                 </div>
-                <div class="form-floating mb-4">
-                    <input type="time" name="appt_time" class="form-control" wire:model.debounce.400ms="appt_time">
-                    <label for="appt_time">Appointment Time</label>
-                    <span class="glyphicon glyphicon-time"></span>
-                    @error('appt_time')
-                        <p class="text-danger">{{$message}}</p>
-                    @enderror
-                </div>
-
                 <div class="form-floating mb-4">
                     <input type="email" name="email" class="form-control" placeholder="example@email.com" wire:model.defer="email">
                     <label for="email">Email</label>
