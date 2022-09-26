@@ -10,16 +10,7 @@
     @livewireStyles
 </head>
 <body>
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-sm-4">
-                <livewire:appointments.create/>
-            </div>
-        </div>
-    </div>
-
-
+@yield('content')
     @livewireScripts
 </body>
 </html>

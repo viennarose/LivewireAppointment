@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('fullName');
             $table->string('service');
-            $table->date('appt_date');
-            $table->time('appt_time');
+            $table->datetime('schedule');
             $table->string('email');
             $table->bigInteger('contact');
             $table->timestamps();

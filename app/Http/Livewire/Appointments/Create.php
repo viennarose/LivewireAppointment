@@ -7,33 +7,28 @@ use App\Models\Appointment;
 
 class Create extends Component
 {
-    public $fullName, $service, $appt_date, $appt_time, $email, $contact;
+    public $fullName, $service, $schedule, $email, $contact;
     public function addAppointment(){
         $this->validate([
             'fullName' => ['required', 'string', 'max:255'],
             'service' => ['required', 'string', 'max:255'],
-            'appt_date' => ['required', 'date'],
-            'appt_time' => ['required', 'string', 'unique:appointments'],
+            'schedule' => ['required', 'string', 'unique:appointments'],
             'email' => ['required', 'email'],
             'contact' => ['required', 'numeric'],
         ]);
         Appointment::create([
             'fullName' => $this->fullName,
             'service' => $this->service,
-            'appt_date' => $this->appt_date,
-            'appt_time' => $this->appt_time,
+            'schedule' => $this->schedule,
             'email' => $this->email,
             'contact' => $this->contact,
         ]);
-<<<<<<< Updated upstream
-=======
         return redirect('/home')->with('message', 'Created Successfully');
->>>>>>> Stashed changes
     }
-    public function updated($propertyAppt_time)
+    public function updated($propertySchedule)
     {
-        $this->validateOnly($propertyAppt_time, [
-            'appt_time' => ['required', 'string'],
+        $this->validateOnly($propertySchedule, [
+            'schedule' => ['required', 'string'],
         ]);
     }
     public function render()
