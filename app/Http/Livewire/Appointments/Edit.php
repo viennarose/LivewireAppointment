@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Appointments;
 
+use App\Events\UserLog;
 use Livewire\Component;
 use App\Models\Appointment;
 
@@ -33,6 +34,10 @@ class Edit extends Component
             'email' => $this->email,
             'contact' => $this->contact,
         ]);
+
+        $log_entry = 'Updated appointment "' . $this->appointment->fullName . '" with the ID# of ' . $this->appointment->id;
+        event(new UserLog($log_entry));
+
         return redirect('/home')->with('message', 'Updated Successfully');
     }
     public function getAppointmentProperty(){

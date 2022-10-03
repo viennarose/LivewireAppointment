@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Appointments;
 
+use App\Events\UserLog;
 use Livewire\Component;
 use App\Models\Appointment;
 
@@ -15,6 +16,8 @@ class Delete extends Component
     public function delete(){
         $this->appointment->delete();
 
+        $log_entry = 'Deleted appointment "' . $this->appointment->fullName . '" with the ID# of ' . $this->appointment->id;
+        event(new UserLog($log_entry));
         return redirect('/home')->with('message', 'Deleted Successfully');
     }
 

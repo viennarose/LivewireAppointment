@@ -1,4 +1,21 @@
 <div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <select class="form-select" wire:model.lazy="service">
+                        <option value="all"> All</option>
+                        <option value="Dental Cleaning">Dental Cleaning</option>
+                        <option value="Tooth Extraction">Tooth Extraction</option>
+                        <option value="Dental Check-up">Dental Check-up</option>
+                        <option value="Braces">Braces</option>
+                        <option value="Others">Others</option>
+                </select>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Search" wire:model.lazy="search">
+            </div>
+        </div>
+    </div>
    <table class="table table-striped">
     <thead>
         <tr>
@@ -31,4 +48,6 @@
         @endforeach
     </tbody>
    </table>
+
+   {{$appointments->links()}}
 </div>
