@@ -27,7 +27,7 @@
                             </div>
                         @endif
                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
-                        <form action="{{'/'}}" method="POST">
+                        <form action="{{'/login'}}" method="POST">
                             {{ csrf_field() }}
                         <div class="form-outline mb-4">
                           <input type="email" id="email" name="email" class="form-control form-control-lg" />

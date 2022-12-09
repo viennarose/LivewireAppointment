@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Log;
+use App\Models\Post;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,6 +21,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'gender',
         'email',
         'password',
         'remember_token'
@@ -46,5 +48,8 @@ class User extends Authenticatable
 
     public function logs(){
         return $this->hasMany(Log::class);
+    }
+    public function posts(){
+        return $this->hasMany(Post::class);
     }
 }

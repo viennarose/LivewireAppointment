@@ -3,6 +3,7 @@
 use App\Http\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AppointmentController;
 
@@ -16,18 +17,23 @@ use App\Http\Controllers\AppointmentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [SiteController::class, 'landing']);
 Route::get('/register', [AuthController::class, 'registerForm']);
 Route::post('/register', [AuthController::class, 'register']);
-Route::get('/', [AuthController::class, 'loginForm'])->name('login');
-Route::post('/', [AuthController::class, 'login']);
-Route::group(['middleware' => ['auth', 'verified']], function(){
-    Route::get('/home', [AppointmentController::class, 'index']);
+Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
 
+Route::post('/login', [AuthController::class, 'login']);
+//Route::post('/', [AuthController::class, 'login']);
+Route::get('/verification/{user}/{token}', [AuthController::class, 'verification']);
+
+Route::group(['middleware' => ['auth', 'verified']], function(){
+
+    Route::get('/home', [AppointmentController::class, 'index']);
     Route::get('/logout', [AuthController::class, 'logout']);
-    Route::get('/verification/{user}/{token}', [AuthController::class, 'verification']);
     Route::get('/edit/{appointment}', [AppointmentController::class, 'edit']);
     Route::get('/delete/{appointment}', [AppointmentController::class, 'destroy']);
     Route::get('/logs', [SiteController::class, 'logs']);
+    Route::get('/posts', [PostController::class, 'index']);
 });
 
 

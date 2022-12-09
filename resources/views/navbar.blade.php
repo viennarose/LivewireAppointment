@@ -25,6 +25,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{url('/logs')}}">Logs</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url('/posts')}}">Posts</a>
+              </li>
             </ul>
             <div>
                 <a href="{{'/logout'}}"><button class="btn btn-primary mx-3">Logout</button></a>

@@ -12,6 +12,7 @@ class Index extends Component
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';
+    
     public function loadAppointments(){
         $query = Appointment::orderBy('fullName')
             ->search($this->search);

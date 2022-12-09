@@ -10,4 +10,8 @@ class SiteController extends Controller
         $logs = auth()->user()->logs;
         return view('log', compact('logs'));
     }
+
+    public function landing(){
+        return view('landing');
+    }
 }

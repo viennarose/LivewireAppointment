@@ -16,7 +16,7 @@
                         <form action="{{'/register'}}" method="POST">
                             {{ csrf_field() }}
                       <div class="row">
-                        <div class="form-outline mb-4" wire:submit.prevent="resgutse">
+                        <div class="form-outline mb-4">
                           <div class="form-outline">
                             <input type="text" name="name" id="name" class="form-control form-control-lg" />
                             <label class="form-label" for="name">Name</label>
@@ -24,8 +24,17 @@
                                 <p class="text-danger">{{$message}}</p>
                             @enderror
                           </div>
-                        </div>
-                      </div>
+                          <div class="form-outline mb-4">
+                            <select name="gender" class="form-control form-control-lg">
+                                <option value="0">Female</option>
+                                <option value="1">Male</option>
+                            </select>
+                            <label class="form-label" for="gender">Gender</label>
+                            @error('gender')
+                                <p class="text-danger">{{$message}}</p>
+                            @enderror
+                          </div>
+
 
                       <div class="form-outline mb-4">
                         <input type="email" id="email" name="email" class="form-control form-control-lg" />
@@ -49,7 +58,8 @@
                         <p class="text-danger">{{$message}}</p>
                         @enderror
                     </div>
-
+                </div>
+            </div>
                       <div class="d-flex justify-content-end pt-3">
                         <a href="{{'/'}}" class="btn btn-light btn-lg">Already have an account</a>
                         <button type="submit" class="btn btn-warning btn-lg ms-2">Register</button>
